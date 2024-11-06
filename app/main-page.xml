@@ -1,0 +1,89 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+    <ActionBar title="{{ translations.intro.title }}">
+        <ActionBar.actionItems>
+            <ActionItem tap="showLanguageDialog" ios.position="right" android.position="popup" text="{{ currentLanguage === 'en' ? 'Language' : 'Språk' }}" />
+        </ActionBar.actionItems>
+    </ActionBar>
+    
+    <TabView selectedIndex="{{ selectedIndex }}" androidTabsPosition="bottom">
+        <TabViewItem>
+            <TabViewItem.title>
+                <StackLayout orientation="vertical">
+                    <Label text="church" class="mdi tab-icon" />
+                    <Label text="{{ translations.tabs.intro }}" />
+                </StackLayout>
+            </TabViewItem.title>
+            <ScrollView>
+                <StackLayout class="tab-item">
+                    <Label text="{{ translations.intro.description }}" class="content-text" textWrap="true" />
+                    <Image src="~/images/cross.png" class="intro-image" stretch="aspectFit" />
+                </StackLayout>
+            </ScrollView>
+        </TabViewItem>
+
+        <TabViewItem>
+            <TabViewItem.title>
+                <StackLayout orientation="vertical">
+                    <Label text="book" class="mdi tab-icon" />
+                    <Label text="{{ translations.tabs.examination }}" />
+                </StackLayout>
+            </TabViewItem.title>
+            <ScrollView>
+                <StackLayout class="tab-item">
+                    <Label text="{{ translations.examination.title }}" class="header-text" />
+                    <Label text="{{ translations.examination.description }}" class="content-text" textWrap="true" />
+                    <Repeater items="{{ commandments }}">
+                        <Repeater.itemTemplate>
+                            <StackLayout>
+                                <Label text="{{ title }}" class="commandment-title" textWrap="true" />
+                                <Repeater items="{{ questions }}">
+                                    <Repeater.itemTemplate>
+                                        <Label text="{{ $value }}" class="commandment-text" textWrap="true" />
+                                    </Repeater.itemTemplate>
+                                </Repeater>
+                            </StackLayout>
+                        </Repeater.itemTemplate>
+                    </Repeater>
+                </StackLayout>
+            </ScrollView>
+        </TabViewItem>
+
+        <TabViewItem>
+            <TabViewItem.title>
+                <StackLayout orientation="vertical">
+                    <Label text="hands_praying" class="mdi tab-icon" />
+                    <Label text="{{ translations.tabs.conditions }}" />
+                </StackLayout>
+            </TabViewItem.title>
+            <ScrollView>
+                <StackLayout class="tab-item">
+                    <Label text="{{ translations.conditions.title }}" class="header-text" />
+                    <Repeater items="{{ translations.conditions.items }}">
+                        <Repeater.itemTemplate>
+                            <StackLayout class="mb-4">
+                                <Label text="{{ title }}" class="commandment-title" textWrap="true" />
+                                <Label text="{{ description }}" class="content-text" textWrap="true" />
+                            </StackLayout>
+                        </Repeater.itemTemplate>
+                    </Repeater>
+                </StackLayout>
+            </ScrollView>
+        </TabViewItem>
+
+        <TabViewItem>
+            <TabViewItem.title>
+                <StackLayout orientation="vertical">
+                    <Label text="edit_note" class="mdi tab-icon" />
+                    <Label text="{{ translations.tabs.notes }}" />
+                </StackLayout>
+            </TabViewItem.title>
+            <ScrollView>
+                <StackLayout class="tab-item">
+                    <Label text="{{ translations.notes.title }}" class="header-text" />
+                    <TextView hint="{{ translations.notes.hint }}" text="{{ notes }}" editable="true" class="input-field" height="300" />
+                    <Button text="{{ translations.notes.saveButton }}" tap="{{ saveNotes }}" class="-primary" />
+                </StackLayout>
+            </ScrollView>
+        </TabViewItem>
+    </TabView>
+</Page>

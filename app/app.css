@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.mdi {
+    font-family: "MaterialIcons-Regular";
+    font-weight: normal;
+}
+
+.tab-item {
+    @apply p-4;
+}
+
+.header-text {
+    @apply text-2xl font-bold mb-4 text-center text-blue-900;
+}
+
+.content-text {
+    @apply text-base mb-6 text-gray-700 leading-relaxed text-center px-4;
+}
+
+.intro-image {
+    height: 500;
+    margin-top: 20;
+    margin-bottom: 20;
+    horizontal-align: center;
+}
+
+.commandment-title {
+    @apply font-bold mt-4 mb-2 text-blue-900;
+}
+
+.commandment-text {
+    @apply text-base mb-4 pl-4 text-gray-600;
+}
+
+.input-field {
+    @apply border-b border-gray-300 p-2 mb-4 bg-gray-50;
+}
+
+Button.-primary {
+    @apply bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg mt-4;
+}
+
+TabView {
+    @apply bg-white;
+}
+
+ScrollView {
+    @apply bg-gray-50;
+}
+
+ActionItem {
+    color: white;
+    font-size: 16;
+    font-weight: bold;
+    padding: 10;
+}
+
+.tab-icon {
+    font-size: 28;
+    text-align: center;
+    margin-bottom: 2;
+}
